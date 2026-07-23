@@ -23,40 +23,40 @@ Privacy, ensuring the user's details are kept safe
 
 ### Relevance to the System
 
-this is relevant to this project because the users details will be kept within the database
+This is relevant to this project because the users details will be kept within the database
 
 ### Impact / Considerations
 
-I will need to ensure that there are passwords or "security measures" that keep it secure.
+I will need to ensure that there are passwords or "security measures", that the data kept is secured/safe
 
 
 
 ## NAME OF IMPLICATION 2
 
-usability, ensuring the site is usable for the user
+Usability, ensuring the site is easily usable for the user
 
 ### Relevance to the System
 
-the project needs to be easily usable/simple to use.
+The project needs to be easily usable/simple to use so the problem of recording data being difficult improves.
 
 ### Impact / Considerations
 
 
-keeping the system simple and easy to understand.
+Keeping the system simple and easy to understand, whether it follows the Nielson's Usability Heuristics e.g. if the system status is always visible or whether the user can easily leave a process.
 
 
 
 ## NAME OF IMPLICATION 3
 
-functionality, the site works
+Functionality, the site works properley and doesn't have any bugs.
 
 ### Relevance to the System
 
-the system needs to function properley.
+The system needs to function properley for the user to be able to use it.
 
 ### Impact / Considerations
 
-ensure the system does what the specifications imply
+Ensure the system loads quickly, whether there are bugs or glitches, if links work and if it works on different devices.
 
 
 
@@ -66,23 +66,22 @@ Aesthetics, ensuring the site looks pleasing
 
 ### Relevance to the System
 
-the system needs to be aesthetically pleasing for the user.
+The system needs to be aesthetically pleasing for the user to want to use it.
 
 ### Impact / Considerations
 
-the layout of the system needs to be aesthetically pleasing which may cause work arounds
+The layout of the system needs to be aesthetically pleasing which may cause work arounds, it needs to follow recognised conventions(e.g. logo in the top left)
 
 
 ## NAME OF IMPLICATION 5
 
-
+End user, It needs to meet the specifications that the user has set.
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the implication is relevant to this particular project.
+This is relevant to the system because this site is designed for the specific user and meeting their specifications are near essential for this site.
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this implication.
-
+Things that need to be considered are whether the site does what the user specified, whether it appeals to the user, and whether it is accesible on devices like a phone
 
