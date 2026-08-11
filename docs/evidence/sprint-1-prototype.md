@@ -27,16 +27,21 @@ Develop a design for the database and a UI prototype that simulates the key func
 
 Replace this text with notes regarding the DB design.
 
-![DB Design](screenshots/placeholder.png)
+![Database](screenshots/db.png)
 
 
 ### Required Data Input
 
-Replace this text with a description of what data will be input, and where / how it will be obtained.
+• Date/Dates
+• Name
+• Ph number 
+• Event(Hire Pourpose)
+• Money Amount
+
 
 ### Required Data Output
 
-Replace this text with a description of the outputs for the system - what types of data will be displayed?
+The data that will be outputted
 
 ### Required Data Processing
 
@@ -48,6 +53,7 @@ Replace this text with a description of how the data will be processed to achiev
 The first stage of prototyping was to explore how the UI might 'flow' between states, based on the required functionality.
 
 This Figma demo shows the initial design for the UI 'flow':
+
 
 **FIGMA FLOW - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT**
 

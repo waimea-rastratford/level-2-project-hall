@@ -62,7 +62,7 @@ Ensure the system loads quickly, whether there are bugs or glitches, if links wo
 
 ## NAME OF IMPLICATION 4
 
-Aesthetics, ensuring the site looks pleasing
+Aesthetics, ensuring the site looks pleasing to what the end user has specified
 
 ### Relevance to the System
 
