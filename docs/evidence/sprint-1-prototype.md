@@ -25,7 +25,7 @@ Develop a design for the database and a UI prototype that simulates the key func
 
 ## Initial Database Design
 
-Replace this text with notes regarding the DB design.
+The database holds information on bookings of a hall, e.g. date, name, phone
 
 ![Database](screenshots/db.png)
 
@@ -36,16 +36,15 @@ Replace this text with notes regarding the DB design.
 • Name
 • Ph number 
 • Event(Hire Pourpose)
-• Money Amount
 
 
 ### Required Data Output
 
-The data that will be outputted
+The data that will be outputted is a calander that shows bookings for the hall
 
 ### Required Data Processing
 
-Replace this text with a description of how the data will be processed to achieve the desired output(s) - any processes / formulae?
+The inputted data will be stored and sorted to be shown where they are in the calander
 
 
 ## UI 'Flow'
@@ -53,6 +52,7 @@ Replace this text with a description of how the data will be processed to achiev
 The first stage of prototyping was to explore how the UI might 'flow' between states, based on the required functionality.
 
 This Figma demo shows the initial design for the UI 'flow':
+![UI_Flow](screenshots/UI_flow.png)
 
 
 **FIGMA FLOW - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT**
