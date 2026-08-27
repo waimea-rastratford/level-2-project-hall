@@ -15,32 +15,66 @@
 #     SEED_DATA = "INSERT INTO name (...)" or None
 #----------------------------------------------------------------------------
 
-class NoteTable:
+class BookingTable:   
 
-    NAME = "note"
+    NAME = "bookings"
 
     SCHEMA = """
-        CREATE TABLE note (
+        CREATE TABLE booking (
             id      INTEGER PRIMARY KEY AUTOINCREMENT,
-            title   TEXT NOT NULL,
-            body    TEXT,
-            pinned  INTEGER DEFAULT 0,
-            created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            event   TEXT,
+            booking_name  TEXT,
+            date_id  INTEGER FOREIGN KEY ,
+            personal_id INTEGER FOREIGN KEY
         )
     """
 
     SEED_DATA = """
-        INSERT INTO note (title, pinned, body)
+        INSERT INTO booking (event, booking_name, date_id, personal_id )
         VALUES
-            ("Welcome!",      1, "This is a demo application using Flask, Jinja and SQLite."),
-            ("Shopping List", 0, "Milk\nBread\nEggs\nCheese"),
-            ("Meeting Notes", 0, "Discussed project timeline.\n\nAction items:\n- Review design\n- Update docs"),
-            ("Recipe: Pasta", 0, "Ingredients:\n- 500g pasta\n- Tomato sauce\n- Garlic\n\nCook pasta, add sauce, enjoy!"),
-            ("Important!",    1, "Remember to backup your database regularly.")
+            ("Birthday", "Jeff", "1", "1")
     """
+
 
 # Add more table classes here...
 
+class InfoTable:
+
+    NAME = "information"
+
+    SCHEMA = """
+        CREATE TABLE info (
+            id      INTEGER PRIMARY KEY AUTOINCREMENT,
+            ph_number   TEXT,
+            full_name  TEXT
+        )
+    """
+
+    SEED_DATA = """
+        INSERT INTO info (ph_number, full_name)
+        VALUES
+            ("0270599348", "Jeff Ceaser the 3rd")
+    """    
+
+
+class DateTable:
+
+    NAME = "dates"
+
+    SCHEMA = """
+        CREATE TABLE date (
+            id      INTEGER PRIMARY KEY AUTOINCREMENT,
+            day   TEXT,
+            month  TEXT,
+            year  TEXT
+        )
+    """
+
+    SEED_DATA = """
+        INSERT INTO date (day, month, year)
+        VALUES
+            ("01", "01",91 )
+    """    
 
 
 #----------------------------------------------------------------------------
@@ -59,7 +93,9 @@ class NoteTable:
 #----------------------------------------------------------------------------
 
 TABLES = [
-    NoteTable,
+    BookingTable,
+    InfoTable,
+    DateTable
     # Add more tables here...
 ]
 

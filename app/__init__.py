@@ -27,8 +27,8 @@ app = Flask(__name__)
 def show_notes():
     with connect_db() as db:
         sql = """
-            SELECT id, title, body, pinned, created
-            FROM note
+            SELECT id, event, booking_name
+            FROM booking
             ORDER BY pinned DESC, created DESC
         """
         params = ()
