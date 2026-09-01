@@ -15,67 +15,59 @@
 #     SEED_DATA = "INSERT INTO name (...)" or None
 #----------------------------------------------------------------------------
 
+
+
+# Add more table classes here...
+
+class PeopleTable:
+
+    NAME = "people"
+
+    SCHEMA = """
+        CREATE TABLE people (
+            id              INTEGER PRIMARY KEY AUTOINCREMENT,
+            name            TEXT NOT NULL,
+            phone_number    TEXT NOT NULL
+
+        )
+    """
+
+    SEED_DATA = """
+        INSERT INTO people (name, phone_number)
+        VALUES
+            ("Jeff Ceaser", "021 024 2345"),
+            ("Derek Man", "021 042 2555"),
+            ("Lisa Lisbon", "021 054 4562"),
+            ("Ronald Mcdonald", "021 087 6953"),
+            ("Mrs Lincoln", "021 065 0995")
+    """    
+
+
+
 class BookingTable:   
 
     NAME = "bookings"
 
     SCHEMA = """
-        CREATE TABLE booking (
-            id      INTEGER PRIMARY KEY AUTOINCREMENT,
-            event   TEXT,
-            booking_name  TEXT,
-            date_id  INTEGER FOREIGN KEY ,
-            personal_id INTEGER FOREIGN KEY
+        CREATE TABLE bookings (
+            id          INTEGER PRIMARY KEY AUTOINCREMENT,
+            event       TEXT NOT NULL,
+            date        TEXT NOT NULL,
+            people_id   INTEGER NOT NULL,
+
+            FOREIGN KEY (people_id) REFERENCES people(id)
         )
     """
 
     SEED_DATA = """
-        INSERT INTO booking (event, booking_name, date_id, personal_id )
+        INSERT INTO bookings (people_id, date, event)
         VALUES
-            ("Birthday", "Jeff", "1", "1")
+            ("1", "2026-05-03", "Birthday"),
+            ("2", "2026-07-07", "Wedding" ),
+            ("3", "2026-03-11", "Birthday"),
+            ("4", "2026-06-14", "Get Together"),
+            ("5", "2026-09-21", "Funeral" )
     """
-
-
-# Add more table classes here...
-
-class InfoTable:
-
-    NAME = "information"
-
-    SCHEMA = """
-        CREATE TABLE info (
-            id      INTEGER PRIMARY KEY AUTOINCREMENT,
-            ph_number   TEXT,
-            full_name  TEXT
-        )
-    """
-
-    SEED_DATA = """
-        INSERT INTO info (ph_number, full_name)
-        VALUES
-            ("0270599348", "Jeff Ceaser the 3rd")
-    """    
-
-
-class DateTable:
-
-    NAME = "dates"
-
-    SCHEMA = """
-        CREATE TABLE date (
-            id      INTEGER PRIMARY KEY AUTOINCREMENT,
-            day   TEXT,
-            month  TEXT,
-            year  TEXT
-        )
-    """
-
-    SEED_DATA = """
-        INSERT INTO date (day, month, year)
-        VALUES
-            ("01", "01",91 )
-    """    
-
 
 #----------------------------------------------------------------------------
 # Table registry
@@ -93,9 +85,8 @@ class DateTable:
 #----------------------------------------------------------------------------
 
 TABLES = [
+    PeopleTable,
     BookingTable,
-    InfoTable,
-    DateTable
     # Add more tables here...
 ]
 

@@ -1,0 +1,37 @@
+{#=====================================================
+  Home page
+=====================================================#}
+
+{% extends 'pages/_base.jinja' %}
+
+
+{% block content %}
+
+    <h2>Bookings</h2>
+
+    <section id="bookings">
+
+        {% for booking in Bookings %}
+
+            <div class="booking">
+
+                <header>
+                    <h3>{{ booking.event }}</h3>
+                </header> <p></p>
+
+                <footer>
+                    Created on 
+                </footer>
+
+            </div>
+
+        {% else %}
+
+            <p>No Bookings</p>
+
+        {% endfor %}
+
+    </section>
+
+{% endblock %}
+
