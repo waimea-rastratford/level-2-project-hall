@@ -19,31 +19,11 @@ app = Flask(__name__)
 #===========================================================
 # App Routes Handlers
 #===========================================================
-
+def get_booking(date):
+    return next((item for item in bookings if item["date"] == date), None)
 #-----------------------------------------------------------
 # Home page - Show all notes
 #-----------------------------------------------------------
-# @app.get("/")
-# def show_notes():
-#     with connect_db() as db:
-#         sql = """
-#             SELECT id, event, booking_name
-#             FROM booking
-#             ORDER BY pinned DESC, created DESC
-#         """
-#         params = ()
-#         notes = db.execute(sql, params).fetchall()
-
-#         flash("Test message")
-#         flash("Test SUCCESS message", "success")
-#         flash("Test INFO message", "info")
-#         flash("Test WARNING message", "warning")
-#         flash("Test ERROR message", "error")
-
-#         return render_template("pages/note_list.jinja", notes=notes)
-
-
-
 @app.get("/")
 def show_home():
     with connect_db() as db:
@@ -54,6 +34,49 @@ def show_home():
         params = ()
         bookings = db.execute(sql, params).fetchall()
         return render_template("pages/home.jinja", bookings=bookings)
+
+
+
+#-----------------------------------------------------------
+# Home page - Show all notes
+#-----------------------------------------------------------
+@app.get("/booking/<date>")
+def show_booking(date):
+    booking = get_booking(date)
+    
+    return render_template("pages/booking.jinja", booking=booking)
+
+ # with connect_db() as db:
+    #     sql = """
+    #         SELECT event, date, id
+    #         FROM bookings
+    #     """
+    #     params = ()
+    #     bookings = db.execute(sql, params).fetchall()
+#====================
+
+
+
+with connect_db() as db:
+        sql = """
+            SELECT event, date, id
+            FROM bookings
+        """
+        params = ()
+        bookings = db.execute(sql, params).fetchall()
+# #-----------------------------------------------------------
+# # Home page - Show all notes
+# #-----------------------------------------------------------
+# @app.get("/")
+# def show_home():
+#     with connect_db() as db:
+#         sql = """
+#             SELECT event, date, id
+#             FROM bookings
+#         """
+#         params = ()
+#         bookings = db.execute(sql, params).fetchall()
+#         return render_template("pages/home.jinja", bookings=bookings)
 
 #===========================================================
 # Configure the app
