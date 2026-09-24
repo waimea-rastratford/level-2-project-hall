@@ -13,24 +13,30 @@
 
         {% for date in dates %}
 
-            <div class="day">
+            {% for booking in bookings %}
 
-                <header>
-                    <h3>{{ date }}</h3>
-                </header>
+             {% if date != booking.date %}
+                    <div class="day">
+
+                        <header>
+                            <h3>{{ date }}</h3>
+                           {# `  <a href="/booking/<date>"></a> #}
+                        </header>
+
+                </div>
+
+                {%else%}
+                    <div class="booked_day">
+
+                        <header>
+                            <h3>{{ date }}</h3>
+                        </header>
+                
+                    </div>
+                {% endif %}
 
 
-                {% for booking in bookings %}
-
-                    {% if date == booking.date %}
-
-                        {{ booking.event }}
-
-                    {% endif %}
-
-                {% endfor %}
-
-            </div>
+            {% endfor %}
 
         {% endfor %}
 
