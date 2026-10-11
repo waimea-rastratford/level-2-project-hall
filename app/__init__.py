@@ -67,13 +67,13 @@ def show_booking(date):
                 people.id,
                 people.name,
                 people.phone_number,
-                booking.id,
-                booking.event,
-                booking.date
+                bookings.id,
+                bookings.event,
+                bookings.date
                 
                 FROM people
-                JOIN booking ON booking.people_id = people.id
-                WHERE booking.date = ?
+                JOIN bookings ON bookings.people_id = people.id
+                WHERE bookings.date = ?
             
         """
         params = ()
