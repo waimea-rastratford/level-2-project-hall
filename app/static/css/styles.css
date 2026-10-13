@@ -81,7 +81,14 @@ main > h2 {
     
     grid-auto-rows: 1fr;
     align-items: start;
+    
 
+
+    a {
+        color: #111;
+        text-decoration: none;
+
+    }
     .day {
         padding: 1rem;
         text-align: center;

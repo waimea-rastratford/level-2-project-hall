@@ -62,7 +62,7 @@ class BookingTable:
     SEED_DATA = """
         INSERT INTO bookings (people_id, date, event)
         VALUES
-            ("1", "2026-05-03", "Birthday"),
+            ("1", "2026-10-26", "Birthday"),
             ("2", "2026-07-07", "Wedding" ),
             ("3", "2026-03-11", "Birthday"),
             ("4", "2026-06-14", "Get Together"),

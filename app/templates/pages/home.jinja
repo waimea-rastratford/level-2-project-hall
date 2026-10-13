@@ -13,35 +13,34 @@
 
         {% for date in dates %}
 
-
             {% set booked = namespace(value=false) %}
 
 
-            {% for booking in bookings %}
+            {# {% for booking in bookings %}
 
                 {% if date == bookings.date %}
                     {% set booked.value = true %}
                 {% endif%}
 
-            {% endfor %}    
+            {% endfor %}     #}
 
-            {% if booked.value == false %}
-                <div class="day">
-
+            {% if booked.value == true %}
+                <div class="booked_day">
+                    <a href="/booking/{{ date }}">
                         <header>
                             <h3>{{ date }}</h3>
-                             <a href="/booking/<date>"></a>
                         </header>
+                    </a>
+                </div>
+                {% else  %}
 
-            {% elif booked.value == true %}
-
-            <div class="booked_day">
-
-                        <header>
-                            <h3>{{ date }}</h3>
-                             <a href="/booking/<date>"></a>
-                        </header>
-
+                    <div class="day">
+                        <a href="/booking/{{ date }}">
+                            <header>
+                                <h3>{{ date }}</h3>
+                            </header>
+                        </a>
+                    </div>
 
             {% endif%}
             
