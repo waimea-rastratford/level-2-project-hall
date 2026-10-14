@@ -45,17 +45,18 @@ def show_home():
 
     with connect_db() as db:
         sql = """
-            SELECT event, date, id
+            SELECT date
             FROM bookings
         """
-        params = ()
-        bookings = db.execute(sql, params).fetchall()
+
+        bookings = db.execute(sql).fetchall()
+
         return render_template("pages/home.jinja", bookings=bookings, dates=dates)
 
 
 
 #-----------------------------------------------------------
-# Home page - Show all notes
+# Home page - Show a+-ll notes
 #-----------------------------------------------------------
 @app.get("/booking/<date>")
 def show_booking(date):

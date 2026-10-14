@@ -16,13 +16,11 @@
             {% set booked = namespace(value=false) %}
 
 
-            {# {% for booking in bookings %}
-
-                {% if date == bookings.date %}
+            {% for booking in bookings %}
+                {% if date == booking['date'] %}
                     {% set booked.value = true %}
-                {% endif%}
-
-            {% endfor %}     #}
+                {% endif %}
+            {% endfor %} 
 
             {% if booked.value == true %}
                 <div class="booked_day">
