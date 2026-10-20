@@ -34,12 +34,13 @@ main {
     max-width: 60rem;
     margin-inline: auto;
     padding: 1rem;
+    background-color: #fff;
 }
 
 
-head {
+#navbar {
 
-    background-color: #111;
+    background-color: #181313;
 }
 
 /* Header & Nav -----------------------------------------------*/
@@ -95,6 +96,7 @@ main > h2 {
         border: 1px solid var(--border-col);
         background-color: var(--back-col-panel);
         padding-bottom: 1rem;
+        background-color: var(--back-col-panel);
 
         header {
             display: flex;
@@ -116,12 +118,19 @@ main > h2 {
         border: 1px solid var(--border-col);
         background-color: var(--back-col-panel);
         padding-bottom: 1rem;
-        background-color: #e43;
+        
+        background-image: url("/static/images/occupied.svg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        
 
         header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
+            
         }
 
         footer {
@@ -129,4 +138,35 @@ main > h2 {
             font-style: italic;
     
         }
+}
+
+.booking_details {
+
+    text-align: center;
+    border: 1px solid;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    background-color:#bbb6b6;
+
+
+
+
+    h2{
+
+        font-size: 3.4rem;
+        text-align: center;
+        margin-block: 1rem;
+        margin-bottom: 8rem;
+        
+    }
+    
+    h3{
+
+        font-size: 1.3rem;
+       
+        
+    }
+
 }

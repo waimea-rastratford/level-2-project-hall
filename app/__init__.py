@@ -20,7 +20,7 @@ app = Flask(__name__)
 #===========================================================
 # App Routes Handlers
 #===========================================================
-def get_booking(date):
+def get_bookings(date):
     return next((item for item in bookings if item["date"] == date), None)
 #-----------------------------------------------------------
 # Home page - Show all notes
@@ -60,7 +60,7 @@ def show_home():
 #-----------------------------------------------------------
 @app.get("/booking/<date>")
 def show_booking(date):
-    booking = get_booking(date)
+    # booking= get_bookings(date)
 
     with connect_db() as db:
         sql = """
