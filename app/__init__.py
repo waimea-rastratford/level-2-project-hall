@@ -56,7 +56,7 @@ def show_home():
 
 
 #-----------------------------------------------------------
-# Home page - Show a+-ll notes
+# Page for each booking
 #-----------------------------------------------------------
 @app.get("/booking/<date>")
 def show_booking(date):
@@ -82,15 +82,51 @@ def show_booking(date):
     
     return render_template("pages/booking.jinja", booking=booking)
 
- # with connect_db() as db:
-    #     sql = """
-    #         SELECT event, date, id
-    #         FROM bookings
-    #     """
-    #     params = ()
-    #     bookings = db.execute(sql, params).fetchall()
-#====================
 
+#-----------------------------------------------------------
+# Delete Booking
+#-----------------------------------------------------------
+@app.get("/booking/<date>/delete")
+def delete_a_booking(date):
+    # Delete the booking using its date
+    with connect_db() as db:
+        sql = """
+            DELETE FROM bookings
+            WHERE date = ?
+        """
+        params = (date,)
+        db.execute(sql, params)
+
+    flash("Booking deleted", "success")
+    return redirect("/")
+
+
+#-----------------------------------------------------------
+# Page for each booking
+#-----------------------------------------------------------
+@app.get("/booking/create")
+
+def create_bookings():
+
+    with connect_db() as db:
+        sql = """
+            SELECT
+                people.id,
+                people.name,
+                people.phone_number,
+                bookings.id,
+                bookings.event,
+                bookings.date
+                
+                FROM people
+                JOIN bookings ON bookings.people_id = people.id
+
+            
+        """
+        params = ()
+        booking = db.execute(sql).fetchall()
+    
+    return render_template("pages/create_booking.jinja", booking=booking)
 
 
 

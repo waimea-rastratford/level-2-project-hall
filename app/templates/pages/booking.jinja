@@ -6,7 +6,7 @@
 
 
 {% block content %}
-
+    
     
     {% if booking.name %}
       <div class="booking_details">
@@ -14,11 +14,18 @@
         <h2>Booking for {{ booking.name }} </h2>
         <h3>Phone Number: {{ booking.phone_number }}</h3>
         <h3>Event: {{ booking.event }}</h3>
-
+        
       </div>
+
+      <a href="/booking/{{ booking.date }}/delete">Delete Booking</a>
     {% else %}
         
       <h2> Booking Empty</h2>
+      <h1>{{ date }}</h1>
+      
+      <a href="/booking/{{ date }}/create">Add Booking</a>
+
+      
     {% endif %}
 
 

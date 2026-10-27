@@ -169,4 +169,22 @@ main > h2 {
         
     }
 
+}   
+
+#booking_form{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+
+    form {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 200px;
+        gap:4px;
+    }
 }
