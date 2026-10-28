@@ -10,8 +10,8 @@
     
     <h2>Create Booking</h2>
 
-  <div id="booking_form">
-      <form method="post" action="/creature/new">
+  {# <div id="booking_form">
+      <form method="post" action="/booking/create">
       
         <label>
           Name 
@@ -19,14 +19,49 @@
         </label>
 
         <label>
-          Species
-          <input type="text" name="species" required>
+          Event
+          <input type="text" name="event" required>
         </label>
-      
-      <button>Add Creature</button>
-      </form>
-  </div>
 
+
+         <label for="date">Choose a date:</label>
+
+          <select name="date" id="date" required>
+              <option value="" disabled selected>Select a date</option>
+
+              {% for date in dates %}
+                  <option value="{{ date }}">{{ date }}</option>
+              {% endfor %}
+          </select>
+
+      <button>Add Booking</button>
+      </form>
+  </div> #}
+<div id="booking_form">
+    <form method="POST" action="/booking/create">
+
+        <label>
+            Name
+            <input type="text" name="name" required>
+        </label>
+
+        <label>
+            Event
+            <input type="text" name="event" required>
+        </label>
+
+        <label>
+            Phone Number
+            <input type="text" name="phone_number" required>
+        </label>
+
+        <label for="date">Choose a date:</label>
+        <input type="date" name="date" id="date" required>
+
+        <button type="submit">Add Booking</button>
+
+    </form>
+</div>
 
 
 

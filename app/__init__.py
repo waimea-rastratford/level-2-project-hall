@@ -22,6 +22,35 @@ app = Flask(__name__)
 #===========================================================
 def get_bookings(date):
     return next((item for item in bookings if item["date"] == date), None)
+
+
+
+
+
+
+#-----------------------------------------------------------
+# Home page - Show all notes
+#-----------------------------------------------------------
+def get_dates():
+        today = datetime.now()
+        weekday = today.weekday()
+        monday = today - timedelta(days = weekday)
+        weeks_to_show = 5
+        days_to_show = weeks_to_show * 7
+
+        first_day_to_show = monday
+        last_day_to_show = monday + timedelta(days = days_to_show - 1)
+
+        dates = []
+        for i in range(days_to_show):
+            day = first_day_to_show + timedelta(days = i)
+            date = day.strftime("%Y-%m-%d")
+            dates.append(date)
+
+        return dates
+
+
+
 #-----------------------------------------------------------
 # Home page - Show all notes
 #-----------------------------------------------------------
@@ -107,6 +136,7 @@ def delete_a_booking(date):
 @app.get("/booking/create")
 
 def create_bookings():
+    dates = get_dates()
 
     with connect_db() as db:
         sql = """
@@ -126,23 +156,45 @@ def create_bookings():
         params = ()
         booking = db.execute(sql).fetchall()
     
-    return render_template("pages/create_booking.jinja", booking=booking)
+    return render_template("pages/create_booking.jinja", booking=booking, dates=dates)
 
 
 
 # #-----------------------------------------------------------
 # # Home page - Show all notes
 # #-----------------------------------------------------------
-# @app.get("/")
-# def show_home():
-#     with connect_db() as db:
-#         sql = """
-#             SELECT event, date, id
-#             FROM bookings
-#         """
-#         params = ()
-#         bookings = db.execute(sql, params).fetchall()
-#         return render_template("pages/home.jinja", bookings=bookings)
+
+@app.post("/booking/create")
+
+
+
+def post_bookings():
+    name = request.form.get("name")
+    phone_number = request.form.get("phone_number")
+    event = request.form.get("event")
+    date = request.form.get("date")
+
+
+    with connect_db() as db:
+        sql = """
+            INSERT INTO people (name, phone_number)
+            VALUES (?, ?)
+        """
+        cursor = db.execute(sql, (name, phone_number))
+       
+        people_id = cursor.lastrowid
+
+
+        sql = """
+            INSERT INTO bookings (event, date, people_id)
+            VALUES (?, ?, ?)
+        """
+        db.execute(sql, (event, date, people_id ))
+
+    flash("Booking created successfully!")
+    return redirect("/")
+
+
 
 #===========================================================
 # Configure the app

@@ -186,5 +186,15 @@ main > h2 {
         align-items: center;
         max-width: 200px;
         gap:4px;
+
+
+        select { 
+            margin-bottom: 1rem;
+
+        }
+
+        option {
+            max-height: 100rem;
+        }
     }
 }
